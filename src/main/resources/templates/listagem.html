@@ -1,0 +1,22 @@
+  <div th:fragment="listagem" class="listagem" data-color="white" data-active-color="danger">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Data de Cadastro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.nome}"></td>
+                <td th:text="${cliente.telefone}"></td>
+                <td th:text="${#dates.format(cliente.data, 'dd/MM/yyyy')}"></td>
+                <td>
+            <button class="btn btn-success">Ver</button>
+        </td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>

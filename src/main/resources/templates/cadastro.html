@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<html xmlns:th="http://www.thymeleaf.org">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emannare</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/cadastro.js}"></script>
+
+    <link th:href="@{/css/custom.css}" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="panel panel-primary panel-heading">Cadastro de Cliente</div>
+            <form class="form-horizontal" th:action="@{/salvar}" th:object="${cliente}" method="post">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group">
+                    <label for="nome">Nome <h11>*</h11></label>
+                    <input id="nome" type="text" th:field="${cliente.nome}" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                    <label for="telefone">Telefone <h11>*</h11></label>           
+                    <input id="prependedtext" name="telefone" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13"
+                                                           pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)" th:field="*{telefone}" >
+                 </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group">
+                    <label for="data">Data<h11>*</h11></label>                       
+                    <input id="data" name="data" placeholder="DD/MM/AAAA" class="form-control input-md"
+                        required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)"
+                        onBlur="showhide()" th:field="${cliente.data}" >
+                    </div>
+                </div>
+            </div>
+                </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
